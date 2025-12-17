@@ -1,0 +1,12 @@
+{
+    "folder-color.pathColors": [
+        {
+            "folderPath": "Project_MultitaskModel\\.github\\",
+            "color": "foldercolorizer.color_0000cc"
+        },
+        {
+            "folderPath": "Project_MultitaskModel\\.github\\workflows\\",
+            "color": "foldercolorizer.color_0066ff"
+        }
+    ]
+}
