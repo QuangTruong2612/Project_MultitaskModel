@@ -60,7 +60,7 @@ def save_json(path: Path, data: dict):
         path (Path): path to json file
         data (dict): data to be saved in json file
     """
-    with open(path, encoding="utf-8", mode="w") as f:
+    with open(path, mode="w") as f:
         json.dump(data, f, indent=4)
 
     logger.info(f"json file saved at: {path}")
@@ -127,11 +127,11 @@ def get_size(path: Path) -> str:
 
 def decodeImage(imgstring, fileName):
     imgdata = base64.b64decode(imgstring)
-    with open(fileName, encoding="utf-8", mode='wb') as f:
+    with open(fileName, mode='wb') as f:
         f.write(imgdata)
-        f.close()
+        # f.close() <-- Không cần dòng này vì lệnh 'with' tự động đóng file rồi
 
 
 def encodeImageIntoBase64(croppedImagePath):
-    with open(croppedImagePath, encoding="utf-8", model= "rb") as f:
+    with open(croppedImagePath, mode="rb") as f:
         return base64.b64encode(f.read())

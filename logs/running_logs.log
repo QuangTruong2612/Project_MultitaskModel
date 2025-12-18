@@ -80,3 +80,31 @@ UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 262: char
 [2025-12-18 13:22:58,069: INFO: main: >>>>>> Stage Data Ingestion Stage completed <<<<<<
 
 x==========x]
+[2025-12-18 18:50:55,834: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 18:50:55,848: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 18:50:55,849: INFO: common: created directory at: artifacts]
+[2025-12-18 18:51:18,300: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 18:51:18,302: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 18:51:18,304: INFO: common: created directory at: artifacts]
+[2025-12-18 18:52:53,802: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 18:52:53,805: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 18:52:53,806: INFO: common: created directory at: artifacts]
+[2025-12-18 18:52:53,807: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-18 18:59:44,905: INFO: main: Project_MultitaskModel package initialized.]
+[2025-12-18 18:59:44,905: INFO: main: >>>>>> Stage Data Ingestion Stage started <<<<<<]
+[2025-12-18 18:59:44,906: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 18:59:44,908: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 18:59:44,908: INFO: common: created directory at: artifacts]
+[2025-12-18 18:59:44,909: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-18 18:59:44,919: INFO: credentials: Found credentials in shared credentials file: ~/.aws/credentials]
+[2025-12-18 19:00:47,419: INFO: main: >>>>>> Stage Data Ingestion Stage completed <<<<<<
+
+x==========x]
+[2025-12-18 19:00:47,420: INFO: main: >>>>>> Stage Prepare Base Model Stage started <<<<<<]
+[2025-12-18 19:00:47,425: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 19:00:47,429: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 19:00:47,430: INFO: common: created directory at: artifacts]
+[2025-12-18 19:00:47,430: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-18 19:00:49,207: INFO: main: >>>>>> Stage Prepare Base Model Stage completed <<<<<<
+
+x==========x]
