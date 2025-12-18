@@ -1,3 +1,4 @@
-data.zip
 /params.yaml
 /configs/config.yaml
+
+artifacts/*

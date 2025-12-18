@@ -1,0 +1,82 @@
+[2025-12-18 12:02:54,773: INFO: common: YAML file: configs\config.yaml loaded successfully]
+[2025-12-18 12:02:54,776: INFO: common: YAML file: params.yaml loaded successfully]
+[2025-12-18 12:40:12,530: INFO: common: YAML file: configs\config.yaml loaded successfully]
+[2025-12-18 12:40:12,554: INFO: common: YAML file: params.yaml loaded successfully]
+[2025-12-18 12:40:12,557: INFO: common: Created directory at: artifacts]
+[2025-12-18 13:01:08,598: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 13:01:08,601: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 13:01:08,603: INFO: common: created directory at: artifacts]
+[2025-12-18 13:01:08,604: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-18 13:01:08,644: INFO: credentials: Found credentials in shared credentials file: ~/.aws/credentials]
+[2025-12-18 13:02:11,280: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 13:02:11,283: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 13:02:11,285: INFO: common: created directory at: artifacts]
+[2025-12-18 13:02:11,286: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-18 13:02:16,375: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 13:02:16,379: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 13:02:16,380: INFO: common: created directory at: artifacts]
+[2025-12-18 13:02:16,381: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-18 13:02:50,009: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 13:02:50,012: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 13:02:50,014: INFO: common: created directory at: artifacts]
+[2025-12-18 13:02:50,015: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-18 13:03:40,613: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 13:03:40,616: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 13:03:40,618: INFO: common: created directory at: artifacts]
+[2025-12-18 13:03:40,618: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-18 13:03:58,970: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 13:03:58,974: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 13:03:58,976: INFO: common: created directory at: artifacts]
+[2025-12-18 13:03:58,977: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-18 13:03:59,002: INFO: credentials: Found credentials in shared credentials file: ~/.aws/credentials]
+[2025-12-18 13:06:01,728: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 13:06:01,730: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 13:06:01,731: INFO: common: created directory at: artifacts]
+[2025-12-18 13:06:01,732: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-18 13:18:51,796: INFO: main: Project_MultitaskModel package initialized.]
+[2025-12-18 13:18:51,797: INFO: main: >>>>>> Stage Data Ingestion Stage started <<<<<<]
+[2025-12-18 13:18:51,797: ERROR: main: 'charmap' codec can't decode byte 0x81 in position 262: character maps to <undefined>]
+Traceback (most recent call last):
+  File "F:\Project_MultitaskModel\main.py", line 11, in <module>
+    obj.main()
+    ~~~~~~~~^^
+  File "F:\Project_MultitaskModel\src\Project_MultitaskModel\pipeline\stage_01_data_ingestion.py", line 15, in main
+    config = ConfigureManager()
+  File "F:\Project_MultitaskModel\src\Project_MultitaskModel\configs\configurations.py", line 10, in __init__
+    self.config = read_yaml(config_filepath)
+                  ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\envs\project-multitaskmodel-env\Lib\site-packages\ensure\main.py", line 872, in __call__
+    return_val = self.f(*args, **kwargs)
+  File "F:\Project_MultitaskModel\src\Project_MultitaskModel\utils\common.py", line 37, in read_yaml
+    raise e
+  File "F:\Project_MultitaskModel\src\Project_MultitaskModel\utils\common.py", line 31, in read_yaml
+    content = yaml.safe_load(yaml_file)
+  File "C:\Users\ADMIN\anaconda3\envs\project-multitaskmodel-env\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\ADMIN\anaconda3\envs\project-multitaskmodel-env\Lib\site-packages\yaml\__init__.py", line 79, in load
+    loader = Loader(stream)
+  File "C:\Users\ADMIN\anaconda3\envs\project-multitaskmodel-env\Lib\site-packages\yaml\loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\envs\project-multitaskmodel-env\Lib\site-packages\yaml\reader.py", line 85, in __init__
+    self.determine_encoding()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ADMIN\anaconda3\envs\project-multitaskmodel-env\Lib\site-packages\yaml\reader.py", line 124, in determine_encoding
+    self.update_raw()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ADMIN\anaconda3\envs\project-multitaskmodel-env\Lib\site-packages\yaml\reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+  File "C:\Users\ADMIN\anaconda3\envs\project-multitaskmodel-env\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 262: character maps to <undefined>
+[2025-12-18 13:21:50,723: INFO: main: Project_MultitaskModel package initialized.]
+[2025-12-18 13:21:50,723: INFO: main: >>>>>> Stage Data Ingestion Stage started <<<<<<]
+[2025-12-18 13:21:50,724: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-18 13:21:50,725: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 13:21:50,725: INFO: common: created directory at: artifacts]
+[2025-12-18 13:21:50,726: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-18 13:21:50,803: INFO: credentials: Found credentials in shared credentials file: ~/.aws/credentials]
+[2025-12-18 13:22:58,069: INFO: main: >>>>>> Stage Data Ingestion Stage completed <<<<<<
+
+x==========x]

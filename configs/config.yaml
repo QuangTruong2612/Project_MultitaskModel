@@ -3,7 +3,7 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL: s3://project-multitask-bucket/data-storage/data.zip  # <--- File zip trên S3
+  source_URL: s3://project-multitask-bucket/data-storage/data.zip # <--- File zip trên S3
   local_data_file: artifacts/data_ingestion/data.zip  # <--- Tên file khi tải về máy
-  unzip_dir: artifacts/data_ingestion  # <--- Nơi sẽ giải nén ra
+  unzip_dir: artifacts/data_ingestion # <--- Nơi sẽ giải nén ra
 
