@@ -49,11 +49,11 @@ class UncertainlyLoss(nn.Module):
     self.task_num = task_num
     # khởi tạo log(sigma^2) = 0
     self.log_vars = nn.Parameter(torch.zeros((task_num)))
-    self.loss_sent = CombinedLoss()
+    self.loss_seg = CombinedLoss()
     self.loss_classify = nn.CrossEntropyLoss()
 
-  def forward(self, sent_logits, sent_labels, classify_logits, classify_labels):
-    loss_sent = self.loss_sent(sent_logits, sent_labels)
+  def forward(self, seg_logits, seg_labels, classify_logits, classify_labels):
+    loss_seg = self.loss_seg(seg_logits, seg_labels)
     loss_classify = self.loss_classify(classify_logits, classify_labels)
 
     # log(sigma^2) -> sigma^2

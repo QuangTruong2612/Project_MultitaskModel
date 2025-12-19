@@ -16,7 +16,8 @@ class PrepareBaseModel:
         self.model = MultiTaskModelResNet(
             n_classes=self.config.n_classes,
             n_segment=self.config.n_segment,
-            in_channels=self.config.in_channels
+            in_channels=self.config.in_channels,
+            pretrained=True
             )
 
         self.save_model(self.model, self.config.base_model_path)

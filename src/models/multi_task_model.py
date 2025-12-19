@@ -38,11 +38,14 @@ class decode(torch.nn.Module):
       
         return x
 class MultiTaskModelResNet(nn.Module):
-    def __init__(self, n_classes, n_segment, in_channels):
+    def __init__(self, n_classes, n_segment, in_channels, pretrained=True):
         super(MultiTaskModelResNet, self).__init__()
 
         # load pretrained resnet50
-        resnet = models.resnet50(weights=models.ResNet50_Weights.IMAGENET1K_V1)
+        if pretrained:
+            resnet = models.resnet50(weights=models.ResNet50_Weights.IMAGENET1K_V1)
+        else:
+            resnet = models.resnet50(weights=None)
 
         # encoder
         self.block_input = nn.Sequential(

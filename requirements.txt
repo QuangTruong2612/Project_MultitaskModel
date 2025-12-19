@@ -20,3 +20,4 @@ gdown
 boto3
 dvc-s3
 awscli
+albumentations

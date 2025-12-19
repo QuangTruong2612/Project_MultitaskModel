@@ -108,3 +108,11 @@ x==========x]
 [2025-12-18 19:00:49,207: INFO: main: >>>>>> Stage Prepare Base Model Stage completed <<<<<<
 
 x==========x]
+[2025-12-19 11:48:35,339: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-19 11:48:35,359: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-19 11:48:35,362: INFO: common: created directory at: artifacts]
+[2025-12-19 11:48:35,364: INFO: common: created directory at: artifacts/training_model]
+[2025-12-19 11:56:14,946: INFO: common: yaml file: configs\config.yaml loaded successfully]
+[2025-12-19 11:56:14,951: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-19 11:56:14,952: INFO: common: created directory at: artifacts]
+[2025-12-19 11:56:14,954: INFO: common: created directory at: artifacts/training_model]

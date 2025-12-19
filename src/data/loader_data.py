@@ -7,14 +7,15 @@ import os
 import numpy as np
 
 class Data_Seg_Class(Dataset):
-    def __init__(self, img_class_path, img_seg_path, mask_seg_path, transform=None):
+    def __init__(self, class_path, seg_path,  transform=None):
         
-        self.classifi_path = img_class_path
-        self.img_seg_path = img_seg_path
-        self.mask_seg_path = mask_seg_path
+        self.classifi_path = class_path
+        self.img_seg_path = seg_path + '/images'
+        self.mask_seg_path = seg_path + '/masks'
         self.transform = transform
+        self.class_dataset = datasets.ImageFolder(self.classifi_path)
 
-        name_labels = ['glioma', 'meningioma', 'no_tumor', 'pituitary']
+        name_labels = self.class_dataset.classes
 
         # lấy tất các file image trong folder classification
         self.images_filename = []
@@ -24,7 +25,6 @@ class Data_Seg_Class(Dataset):
                     self.images_filename.append(os.path.splitext(f)[0])
 
         # Load dataset phân loại 1 lần duy nhất
-        self.class_dataset = datasets.ImageFolder(self.classifi_path)
         self.label_map = {os.path.splitext(os.path.basename(p))[0]: label for p, label in self.class_dataset.samples}
 
     def __len__(self):
@@ -45,7 +45,7 @@ class Data_Seg_Class(Dataset):
             mask = (mask > 127).astype(np.float32)
         else:
             image_path_new = os.path.join(self.classifi_path + '/no_tumor', filename + '.jpg')
-            image = image = np.array(Image.open(image_path_new).convert('RGB'))
+            image = np.array(Image.open(image_path_new).convert('RGB'))
             mask = np.zeros((512, 512), dtype=np.float32)
 
 

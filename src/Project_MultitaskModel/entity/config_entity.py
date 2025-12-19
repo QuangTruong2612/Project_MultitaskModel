@@ -16,4 +16,22 @@ class PrepareBaseModelConfig:
     n_segment: int
     in_channels: int
     
-    
+@dataclass(frozen=True)
+class TrainingModelConfig:
+    root_dir: Path
+    trained_model_path: Path
+    base_model_path: Path
+    data_classification: Path
+    data_segmentation: Path
+    n_classes: int
+    n_segment: int
+    in_channels: int
+    batch_size: int
+    epochs: int
+    learning_rate: float
+    image_size: list
+    augmentation: bool
+    seed: int
+    task_num: int
+    num_workers: int
+    img_size: int
