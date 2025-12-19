@@ -3,8 +3,8 @@ import urllib.request as request
 from zipfile import ZipFile
 import torch
 import torchvision.models as models
-from src.models.multi_task_model import MultiTaskModelResNet
-from src.Project_MultitaskModel.entity.config_entity import PrepareBaseModelConfig
+from models.multi_task_model import MultiTaskModelResNet
+from Project_MultitaskModel.entity.config_entity import PrepareBaseModelConfig
 from pathlib import Path
 
 

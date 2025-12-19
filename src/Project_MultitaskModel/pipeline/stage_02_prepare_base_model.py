@@ -1,6 +1,6 @@
-from src.Project_MultitaskModel.components.prepare_base_model import PrepareBaseModel
-from src.Project_MultitaskModel.configs.configurations import ConfigureManager
-from src.Project_MultitaskModel import logger
+from Project_MultitaskModel.components.prepare_base_model import PrepareBaseModel
+from Project_MultitaskModel.configs.configurations import ConfigureManager
+from Project_MultitaskModel import logger
 
 STAGE_NAME = "Prepare Base Model Stage"
 class PrepareBaseModelTrainingPipeline:

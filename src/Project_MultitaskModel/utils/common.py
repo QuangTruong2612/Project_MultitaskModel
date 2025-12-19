@@ -1,7 +1,7 @@
 import os
 from box.exceptions import BoxValueError
 import yaml
-from src.Project_MultitaskModel import logger
+from Project_MultitaskModel import logger
 import json
 import joblib
 from ensure import ensure_annotations

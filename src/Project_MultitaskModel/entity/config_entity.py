@@ -35,3 +35,21 @@ class TrainingModelConfig:
     task_num: int
     num_workers: int
     img_size: int
+    
+@dataclass(frozen=True)
+class EvaluationModelConfig:
+    trained_model_path: Path
+    data_classification: Path
+    data_segmentation: Path
+    repo_name: str
+    repo_owner: str
+    batch_size: int
+    n_classes: int
+    n_segment: int
+    in_channels: int
+    num_workers: int
+    img_size: int
+    seed: int
+    augmentation: bool
+    all_params: dict
+    

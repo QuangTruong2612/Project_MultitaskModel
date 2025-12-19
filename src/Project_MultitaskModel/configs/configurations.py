@@ -1,6 +1,7 @@
-from src.Project_MultitaskModel.constants import *
-from src.Project_MultitaskModel.utils.common import read_yaml, create_directories
-from src.Project_MultitaskModel.entity.config_entity import DataIngestionConfig, PrepareBaseModelConfig, TrainingModelConfig
+import os
+from Project_MultitaskModel.constants import *
+from Project_MultitaskModel.utils.common import read_yaml, create_directories
+from Project_MultitaskModel.entity.config_entity import DataIngestionConfig, EvaluationModelConfig, PrepareBaseModelConfig, TrainingModelConfig
 from pathlib import Path
 
 class ConfigureManager:
@@ -66,3 +67,27 @@ class ConfigureManager:
         )
         
         return training_model_config
+
+    def get_evaluation_model_config(self) -> EvaluationModelConfig:
+        training = self.config.training_model
+        trained_model_path = Path(training.trained_model_path)
+        mlflow_tracking_uri = os.getenv('MLFLOW_TRACKING_URI')
+        repo_owner = os.getenv('MLFLOW_TRACKING_USERNAME')
+
+        evaluation_model_config = EvaluationModelConfig(
+            trained_model_path=trained_model_path,
+            data_classification=Path(training.data_classification),
+            data_segmentation=Path(training.data_segmentation),
+            repo_name=mlflow_tracking_uri,
+            repo_owner=repo_owner,
+            batch_size=self.params.BATCH_SIZE,
+            num_workers=self.params.NUM_WORKERS,
+            img_size=self.params.IMAGE_SIZE,
+            seed=self.params.SEED,
+            augmentation=False,
+            all_params=self.params,
+            n_classes=self.params.N_CLASSES,
+            n_segment=self.params.N_SEGMENT,
+            in_channels=self.params.IN_CHANNELS
+        )
+        return evaluation_model_config

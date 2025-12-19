@@ -3,7 +3,7 @@ import zipfile
 import boto3
 from urllib.parse import urlparse
 from pathlib import Path
-from src.Project_MultitaskModel.entity.config_entity import DataIngestionConfig
+from Project_MultitaskModel.entity.config_entity import DataIngestionConfig
 
 class DataIngestion:
     def __init__(self, config: DataIngestionConfig):

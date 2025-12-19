@@ -3,16 +3,11 @@ import urllib.request as request
 from zipfile import ZipFile
 import torch
 import torchvision.models as models
-from src.models.multi_task_model import MultiTaskModelResNet
-from src.data.loader_data import Data_Seg_Class
-from torch.utils.data import DataLoader
-from src.loss_func.combined_loss import UncertainlyLoss
-from src.metrics import calculate_dice, calculate_iou, EarlyStopping
-import numpy as np
-import random
-import albumentations as A
-from albumentations.pytorch import ToTensorV2
-from src.Project_MultitaskModel.entity.config_entity import TrainingModelConfig
+from models.multi_task_model import MultiTaskModelResNet
+from data.loader_data import data_loader
+from loss_func.combined_loss import UncertainlyLoss
+from metrics import calculate_dice, calculate_iou, EarlyStopping
+from Project_MultitaskModel.entity.config_entity import TrainingModelConfig
 from pathlib import Path
 
 class TrainingModel:
@@ -31,46 +26,21 @@ class TrainingModel:
         return model
 
     def loader_data(self):
-        
-        np.random.seed(self.config.seed)
-        random.seed(self.config.seed)
-        if torch.cuda.is_available():
-            torch.cuda.manual_seed_all(self.config.seed)
-            
-        img_size = self.config.image_size
-        if self.config.augmentation:
-            print("Data Augmentation is Enabled")
-            transform = A.Compose([
-                    A.Resize(img_size, img_size),
-                    A.HorizontalFlip(p=0.5),
-                    A.VerticalFlip(p=0.1),
-                    A.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.2, rotate_limit=30, p=0.5),
-                    A.RandomBrightnessContrast(brightness_limit=0.3, contrast_limit=0.3, p=0.5),
-                    A.GaussNoise(var_limit=(0.01, 0.05), p=0.3),
-                    A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
-                    ToTensorV2()
-                ], 
-                is_check_shapes=False )
-        else:
-            print("Data Augmentation is Disabled")
-            transform = A.Compose([
-                    A.Resize(img_size, img_size),
-                    A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
-                    ToTensorV2()
-                ], 
-                is_check_shapes=False )
 
         train_class_path = os.path.join(self.config.data_classification, 'train')
         train_seg_path = os.path.join(self.config.data_segmentation, 'train')
 
-        data_train = Data_Seg_Class(train_class_path, train_seg_path,  transform=transform)
-        train_loader = DataLoader(data_train, batch_size=self.config.batch_size, shuffle=True, num_workers=self.config.num_workers)
-        
-        # test_class_path = os.path.join(self.config.data_classification, 'test')
-        # test_seg_path = os.path.join(self.config.data_segmentation, 'test')
-        # data_test = Data_Seg_Class(test_class_path, test_seg_path, transform=transform)
-        # test_loader = DataLoader(data_test, batch_size=self.config.batch_size, shuffle=False, num_workers=self.config.num_workers)
-        
+        train_loader = data_loader(
+            data_classification_path=train_class_path,
+            data_segmentation_path=train_seg_path,
+            batch_size=self.config.batch_size,
+            shuffle=True,
+            num_workers=self.config.num_workers,
+            augmentation=self.config.augmentation,
+            seed=self.config.seed,
+            img_size=self.config.image_size
+        )
+
         return train_loader
     
     def train_model(self):

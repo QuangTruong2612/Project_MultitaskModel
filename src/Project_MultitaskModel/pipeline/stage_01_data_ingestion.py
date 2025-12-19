@@ -1,8 +1,7 @@
 
-
-from src.Project_MultitaskModel.components.data_ingestion import DataIngestion
-from src.Project_MultitaskModel.configs.configurations import ConfigureManager
-from src.Project_MultitaskModel import logger
+from Project_MultitaskModel.components.data_ingestion import DataIngestion
+from Project_MultitaskModel.configs.configurations import ConfigureManager
+from Project_MultitaskModel import logger
 
 
 STAGE_NAME = "Data Ingestion Stage"

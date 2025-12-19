@@ -2,3 +2,4 @@
 /configs/config.yaml
 
 artifacts/*
+.env

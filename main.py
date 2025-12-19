@@ -1,7 +1,7 @@
-from src.Project_MultitaskModel import logger
-from src.Project_MultitaskModel.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
+from Project_MultitaskModel import logger
+from Project_MultitaskModel.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from Project_MultitaskModel.pipeline.stage_02_prepare_base_model import PrepareBaseModelTrainingPipeline
-from src.Project_MultitaskModel.pipeline.stage_03_training_model import TrainingModelPipeline
+from Project_MultitaskModel.pipeline.stage_03_training_model import TrainingModelPipeline
 
 logger.info("Project_MultitaskModel package initialized.")
 

@@ -37,3 +37,23 @@ stages:
       - IMAGE_SIZE
     outs:
       - artifacts/training_model/trained_model.pt
+  
+  evaluation_model:
+    cmd: python src/Project_MultitaskModel/pipeline/stage_04_evaluation_with_mlflow.py
+    deps:
+      - src/Project_MultitaskModel/pipeline/stage_04_evaluation_with_mlflow.py
+      - configs/config.yaml
+      - artifacts/data_ingestion/data
+      - artifacts/training_model/trained_model.pt
+    params:
+      - BATCH_SIZE
+      - IMAGE_SIZE
+      - NUM_WORKERS
+      - SEED
+      - N_CLASSES
+      - N_SEGMENT
+      - IN_CHANNELS
+    
+    metrics:
+    - scores.json:
+        cache: false
