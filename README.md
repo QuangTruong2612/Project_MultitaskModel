@@ -1,7 +1,7 @@
 # Project_MultitaskModel
 
 # Introduction
-![alt text](./images/image-1.png)
+![alt text](./images/image.png)
 
 
 The "Multi-task Brain Tumor Classification and Segmentation" project focuses on building an advanced Deep Learning model to improve the diagnosis of brain tumors from Magnetic Resonance Imaging (MRI).
