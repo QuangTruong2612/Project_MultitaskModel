@@ -53,7 +53,7 @@ B. Segmentation Labels (For the Segmentation Task): For the images that contain 
 
 1. Clone the reposity
 
-    https://github.com/krishnaik06/Kidney-Disease-Classification-Deep-Learning-Project
+    https://github.com/QuangTruong2612/Project_MultitaskModel.git
 
 2. Create ca conda environment 
 
@@ -78,6 +78,7 @@ B. Segmentation Labels (For the Segmentation Task): For the images that contain 
 # AWS CI/CD with github actions
 
 **1. Login to AWS console**
+
 **2. Create IAM user for deployment**
 
     #with specific access
@@ -106,11 +107,13 @@ B. Segmentation Labels (For the Segmentation Task): For the images that contain 
     2. AmazonEC2FullAccess
 
 **3. Creare ECR repo to store/save docker image**
+
     Save the URI: 566....amazonaws.com/
 
 **4. Create EC2 machine (Ubuntu)**
 
 **5. Open EC2 and Install docker in EC2 Machine**
+
     #optinal
 
     sudo apt-get update -y
@@ -128,9 +131,11 @@ B. Segmentation Labels (For the Segmentation Task): For the images that contain 
     newgrp docker
 
 **6. Configure EC2 as self-hosted runner**
+
     setting -> actions -> ruuner -> self hosted runner -> choose os -> the run command one by one
 
 **7. Setup github secrets:**
+
     AWS_ACCESS_KEY_ID=
 
     AWS_SECRET_ACCESS_KEY=
