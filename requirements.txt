@@ -18,10 +18,10 @@ albumentations
 mlflow>=2.10.0
 dagshub
 dvc
-boto3>=1.35.0
-aiobotocore>=3.0.0
 dvc-s3
-
+aiobotocore==2.15.2 
+boto3==1.35.36 
+s3fs==2024.10.0
 
 # Visualization & Notebook
 matplotlib
@@ -31,5 +31,4 @@ notebook
 # Web Server
 Flask
 Flask-Cors
-gdown
 -e .
