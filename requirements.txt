@@ -8,7 +8,7 @@ notebook
 matplotlib
 seaborn
 python-box
-pyYAML
+pyYAML>=6.0
 tqdm
 ensure
 joblib
