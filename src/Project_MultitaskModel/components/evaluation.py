@@ -77,9 +77,9 @@ class Evaluation:
     def log_into_mlflow(self):
         dagshub.init(repo_owner=str(self.config.repo_owner), repo_name=str(self.config.repo_name))
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+        mlflow.set_experiment("My_Multitask_Model_Project")
         
         with mlflow.start_run():
-            mlflow.pytorch.log_model(self.model, name="model")
             mlflow.log_params(self.config.all_params)
             mlflow.log_metrics(self.scores)
             if tracking_url_type_store != "file":
