@@ -101,7 +101,12 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
       
-      
+      - name: Clean disk space before pulling
+        run: |
+           # Xóa các image cũ "dangling" (không có tên) để lấy chỗ trống
+           docker image prune -f
+           # Hoặc mạnh tay hơn: Xóa container cũ đang tắt
+           docker container prune -f
       - name: Pull latest images
         run: |
          docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
