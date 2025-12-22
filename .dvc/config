@@ -1,0 +1,4 @@
+[core]
+    remote = model
+['remote "model"']
+    url = s3://project-multitask-bucket/model
