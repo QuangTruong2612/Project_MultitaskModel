@@ -1,17 +1,10 @@
-# --- System / Python ---
 __pycache__/
 *.pyc
 .env                # Chuẩn: Giấu biến môi trường chứa mật khẩu/key
 .ipynb_checkpoints/ # Nếu dùng Jupyter Notebook
 
-# --- DVC & Data ---
-# Chặn thư mục data/output (để DVC quản lý, Git không quản lý)
 artifacts/*
 data/*
 
-# --- Models ---
-# Chặn tất cả file đuôi .pt trong folder model
-
-# --- Logs ---
 logs/
 runs/

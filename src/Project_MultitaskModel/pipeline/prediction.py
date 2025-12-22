@@ -12,6 +12,7 @@ import re
 class PredictPipeline:
     def __init__(self, filepath):
         self.filepath = filepath
+        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         
     def predict(self):
         class_label={0: 'Glioma', 1: 'Meningioma', 2: 'No-tumor', 3: 'Pituitary'}
@@ -36,12 +37,14 @@ class PredictPipeline:
         model.load_state_dict(torch.load(file_model, map_location=torch.device('cpu')))
         
         imagename = self.filepath
-        image = Image.open(imagename).convert('RGB')
-        image = A.Compose([
-            A.Resize(height=224, width=224),
+        image = np.array(Image.open(imagename).convert('RGB'))
+        transform = A.Compose([
+            A.Resize(height=256, width=256),
             A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
             ToTensorV2()
-        ])(image)['image'].unsqueeze(0)
+        ])
+        augmented = transform(image=image)
+        image = augmented['image'].unsqueeze(0).to(self.device)
         model.eval()
         
         model.eval()
@@ -54,13 +57,13 @@ class PredictPipeline:
         mask = torch.sigmoid(seg_output)
         mask = (mask > 0.5).float()
         
-        # SỬA LỖI 2: Transpose ảnh về (H, W, C) cho OpenCV
-        img_np = image.squeeze().cpu().numpy()
+        if self.device == 'cuda':
+            img_np = image.squeeze().cpu().numpy()
+        else :
+            img_np = image.squeeze().numpy()
+            
         img_np = np.transpose(img_np, (1, 2, 0)) # Chuyển (3, 224, 224) -> (224, 224, 3)
         
-        # Denormalize nếu cần (vì lúc đầu bạn đã Normalize theo mean/std của ImageNet)
-        # Nếu không denormalize, ảnh hiển thị sẽ bị tối hoặc màu kỳ lạ.
-        # Công thức: pixel = pixel * std + mean
         mean = np.array([0.485, 0.456, 0.406])
         std = np.array([0.229, 0.224, 0.225])
         img_np = std * img_np + mean
