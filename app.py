@@ -36,7 +36,12 @@ def predictRoute():
     image = request.json['image']
     decodeImage(image, clApp.filename)
     result = clApp.predict_pipeline.predict()
-    return jsonify(result)
+    response_data = [
+            {"class": result[0]['class']}, 
+            {"image": result[0]['image']}
+        ]
+    return jsonify(response_data)
+ 
 
 
 if __name__ == "__main__":

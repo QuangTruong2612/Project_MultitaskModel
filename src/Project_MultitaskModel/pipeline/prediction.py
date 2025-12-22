@@ -1,3 +1,4 @@
+import base64
 import numpy as np
 import torch
 import albumentations as A
@@ -7,7 +8,7 @@ from PIL import Image
 import os
 import cv2
 import glob
-
+import re
 class PredictPipeline:
     def __init__(self, filepath):
         self.filepath = filepath
@@ -80,8 +81,11 @@ class PredictPipeline:
         alpha = 1.0 
         beta = 0.5 
         overlay = cv2.addWeighted(img_rgb, alpha, colored_mask, beta, 0)
+        _, buffer = cv2.imencode('.png', overlay)
+        img_base64 = base64.b64encode(buffer).decode('utf-8')
         
         return [{
-            "predicted_class": class_name,
-            "segmentation_mask": overlay
+            "image": img_base64,       # Trả về ảnh Segmentation
+            "class": class_name,       # Trả về tên bệnh
+            "confidence": "N/A"        # Có thể thêm xác suất nếu muốn
         }]

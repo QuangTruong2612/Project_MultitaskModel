@@ -173,7 +173,17 @@
 
                         // 2. Xử lý Classification Result (JSON)
                         // Hiển thị JSON đẹp hơn
-                        $(".jsonRes").html("<pre>" + JSON.stringify(res[0], undefined, 2) + "</pre>");
+                        var classResult = res[0]; 
+						var htmlContent = "";
+						if(classResult.class) {
+							htmlContent += "<h4 class='text-primary'>" + classResult.class + "</h4>";
+						}
+						if(classResult.confidence) {
+							htmlContent += "<p>Confidence: <strong>" + classResult.confidence + "</strong></p>";
+						}
+
+						$(".jsonRes").html(htmlContent); // Dùng .html() thay vì .text()
+						$(".jsonRes").css("background", "#fff").css("color", "#333");
                     },
                     error: function(err){
                         $("#loading").hide();
