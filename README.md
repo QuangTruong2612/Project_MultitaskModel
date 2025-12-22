@@ -1,7 +1,7 @@
 # Project_MultitaskModel
 
 # Introduction
-![alt text](./images/image.png)
+![alt text](./images/image1.png)
 
 
 The "Multi-task Brain Tumor Classification and Segmentation" project focuses on building an advanced Deep Learning model to improve the diagnosis of brain tumors from Magnetic Resonance Imaging (MRI).
@@ -145,3 +145,9 @@ B. Segmentation Labels (For the Segmentation Task): For the images that contain 
     AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
 
     ECR_REPOSITORY_NAME = simple-app
+
+
+
+# Demo
+
+![alt text](images/image.png)
