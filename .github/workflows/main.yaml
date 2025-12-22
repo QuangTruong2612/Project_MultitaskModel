@@ -30,6 +30,18 @@ jobs:
     needs: integration
     runs-on: ubuntu-latest
     steps:
+
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # Chỉ giữ lại những thứ cần thiết cho Docker và Python
+          tool-cache: false
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: false
+          swap-storage: false
       - name: Checkout Code
         uses: actions/checkout@v3
       
