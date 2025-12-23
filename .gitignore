@@ -1,7 +1,7 @@
 __pycache__/
 *.pyc
-.env                # Chuẩn: Giấu biến môi trường chứa mật khẩu/key
-.ipynb_checkpoints/ # Nếu dùng Jupyter Notebook
+.env                
+.ipynb_checkpoints/ 
 
 artifacts/*
 data/*
